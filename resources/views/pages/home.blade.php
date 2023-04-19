@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gallery</title>
+    <title>Home</title>
 </head>
 
 <body>
     @extends('layouts.app')
     @section('body')
         <div class="container">
-            <h1>About</h1>
+            <h1>Home</h1>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo aliquam expedita id sint fugiat inventore amet
                 obcaecati. Iusto, itaque adipisci, fuga eius earum mollitia quidem accusantium nemo error obcaecati
                 repellendus sapiente, in minima at ab doloribus quaerat voluptatem! Inventore beatae voluptatum quae ex eos
