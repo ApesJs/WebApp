@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -19,9 +20,13 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'index']);
 
+// Pages
 Route::get('/about', [AboutController::class, 'index']);
-
 Route::get('/gallery', [GalleryController::class, 'index']);
 
+// Users
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/{user}', [UserController::class, 'show']);
+
+// Ariticles
+Route::get('/articles', [ArticleController::class, 'index']);

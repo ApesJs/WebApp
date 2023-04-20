@@ -10,24 +10,24 @@
 
 <body>
     <x-app>
-        @section('body')
+        <div class="container">
             <x-card title="Data Users">
-                <table class="table">
-                    <tr>
-                        <td>Nama</td>
-                        <td>Umur</td>
-                        <td>Jabatan</td>
-                    </tr>
-                    @foreach ($dataUser as $index => $user)
-                        <tr>
-                            <td>{{ $user['nama'] }}</td>
-                            <td>{{ $user['umur'] }}</td>
-                            <td>{{ $user['jabatan'] }}</td>
-                        </tr>
-                    @endforeach
-                </table>
             </x-card>
-        @endsection
+            <table class="table">
+                <tr>
+                    <td>Nama</td>
+                    <td>Umur</td>
+                    <td>Jabatan</td>
+                </tr>
+                @foreach ($dataUser as $index => $user)
+                    <tr>
+                        <td>{{ $user['nama'] }}</td>
+                        <td>{{ $user['umur'] }}</td>
+                        <td>{{ $user['jabatan'] }}</td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
     </x-app>
 </body>
 
