@@ -12,10 +12,11 @@
     <x-app>
         <div class="container">
             @foreach ($articles as $article)
-                <x-card class="mb-4 w-50" title="{{ $article->title }}" subtitle="{{ $article->created_at }}">
+                <x-card class="mb-4 w-50" title="{{ $article->title }}" subtitle="{{ \Carbon\Carbon::parse($article->created_at)->diffForHumans() }}">
                     <p>
                         {{ $article->body }}
                     </p>
+                    <a href="/articles/{{ $article->id }}" class="button">Show more</a>
                 </x-card>
             @endforeach
         </div>

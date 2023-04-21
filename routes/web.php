@@ -30,3 +30,4 @@ Route::get('/users/{user}', [UserController::class, 'show']);
 
 // Ariticles
 Route::get('/articles', [ArticleController::class, 'index']);
+Route::get('/articles/{id}', [ArticleController::class, 'show']);
