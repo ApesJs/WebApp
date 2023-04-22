@@ -30,4 +30,6 @@ Route::get('/users/{user}', [UserController::class, 'show']);
 
 // Ariticles
 Route::get('/articles', [ArticleController::class, 'index']);
+Route::get('/articles/create', [ArticleController::class, 'create']);
+Route::post('/articles', [ArticleController::class, 'store']);
 Route::get('/articles/{id}', [ArticleController::class, 'show']);

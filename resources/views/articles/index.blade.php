@@ -11,6 +11,7 @@
 <body>
     <x-app>
         <div class="container">
+            <a href="/articles/create" class="btn btn-primary">Create Article</a>
             @foreach ($articles as $article)
                 <x-card class="mb-4 w-50" title="{{ $article->title }}" subtitle="{{ \Carbon\Carbon::parse($article->created_at)->diffForHumans() }}">
                     <p>
