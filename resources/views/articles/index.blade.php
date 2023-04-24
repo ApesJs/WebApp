@@ -13,11 +13,26 @@
         <div class="container">
             <a href="/articles/create" class="btn btn-primary">Create Article</a>
             @foreach ($articles as $article)
-                <x-card class="mb-4 w-50" title="{{ $article->title }}" subtitle="{{ \Carbon\Carbon::parse($article->created_at)->diffForHumans() }}">
+                <x-card class="mb-4 w-50" title="{{ $article->title }}"
+                    subtitle="{{ \Carbon\Carbon::parse($article->created_at)->diffForHumans() }}">
                     <p>
                         {{ $article->body }}
                     </p>
-                    <a href="/articles/{{ $article->id }}" class="button">Show more</a>
+                    <div class="mt-2 d-flex align-items-center justify-content-between gap-2">
+                        <div>
+                            <a href="/articles/{{ $article->id }}" class="btn btn-primary">
+                                Read more
+                            </a>
+                            <a href="/articles/{{ $article->id }}/edit" class="btn btn-success">
+                                Edit
+                            </a>
+                        </div>
+                        <form action="/articles/{{ $article->id }}" method='post'>
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                        </form>
+                    </div>
                 </x-card>
             @endforeach
         </div>

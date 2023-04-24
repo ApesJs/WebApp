@@ -32,4 +32,29 @@ class ArticleController extends Controller
         ]);
         return redirect('/articles');
     }
+
+    public function edit($id)
+    {
+        $article = DB::table('articles')->find($id);
+        return view('articles.edit', compact('article'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => ['required'],
+            'body' => ['required'],
+        ]);
+        $article = DB::table('articles')->where('id', $id)->first();
+        DB::table('articles')->where('id', $id)->update([
+            'title' => $request->title,
+            'body' => $request->body,
+        ]);
+        return redirect("/articles/{$article->id}");
+    }
+
+    public function delete($id){
+        DB::table('articles')->delete($id);
+        return back();
+    }
 }
