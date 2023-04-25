@@ -11,10 +11,10 @@
 <body>
     <x-app>
         <div class="container">
-            <x-card title="{{ $articles->title }}" class="w-50"
-                subtitle="{{ \Carbon\Carbon::parse($articles->created_at)->diffForHumans() }}">
+            <x-card title="{{ $article->title }}" class="w-50"
+                subtitle="{{ \Carbon\Carbon::parse($article->created_at)->diffForHumans() }}">
                 <p>
-                    {{ $articles->body }}
+                    {{ $article->body }}
                 </p>
             </x-card>
         </div>

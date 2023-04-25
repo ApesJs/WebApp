@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = DB::table('articles')->get();
+        $articles = Article::get();
         return view('articles.index', compact('articles'));
     }
 
-    public function show($id)
+    public function show(Article $article)
     {
-        $articles = DB::table('articles')->find($id);
-        return view('articles.show', compact('articles'));
+        return view('articles.show', compact('article'));
     }
 
     public function create()
@@ -26,35 +25,34 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
-        DB::table('articles')->insert([
+        Article::create([
             'title' => $request->title,
             'body' => $request->body,
         ]);
-        return redirect('/articles');
+        return to_route('articles.index');
     }
 
-    public function edit($id)
+    public function edit(Article $article)
     {
-        $article = DB::table('articles')->find($id);
         return view('articles.edit', compact('article'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Article $article)
     {
         $request->validate([
             'title' => ['required'],
             'body' => ['required'],
         ]);
-        $article = DB::table('articles')->where('id', $id)->first();
-        DB::table('articles')->where('id', $id)->update([
+
+        $article->update([
             'title' => $request->title,
             'body' => $request->body,
         ]);
-        return redirect("/articles/{$article->id}");
+        return to_route('articles.show', $article);
     }
 
-    public function delete($id){
-        DB::table('articles')->delete($id);
+    public function delete(Article $article){
+        $article->delete();
         return back();
     }
 }

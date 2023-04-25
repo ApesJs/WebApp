@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <x-card class="mb-4" title="Edit artikel" subtitle="{{ $article->title }}">
-                        <form method="post" action="/articles/{{ $article->id }}">
+                        <form method="post" action="{{ route('articles.update', $article) }}}}">
                             @csrf
                             @method('put')
                             <div class="mb-4">

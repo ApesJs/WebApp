@@ -8,19 +8,19 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/gallery">Gallery</a>
+                    <a class="nav-link" href="{{ route('pages.gallery') }}">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
+                    <a class="nav-link" href="{{ route('pages.about') }}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/users">Users</a>
+                    <a class="nav-link" href="{{ route('users.index') }}">Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/articles">Articles</a>
+                    <a class="nav-link" href="{{ route('articles.index') }}">Articles</a>
                 </li>
             </ul>
         </div>

@@ -18,21 +18,21 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Pages
-Route::get('/about', [AboutController::class, 'index']);
-Route::get('/gallery', [GalleryController::class, 'index']);
+Route::get('/about', [AboutController::class, 'index'])->name('pages.about');
+Route::get('/gallery', [GalleryController::class, 'index'])->name('pages.gallery');
 
 // Users
-Route::get('/users', [UserController::class, 'index']);
-Route::get('/users/{user}', [UserController::class, 'show']);
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
 
 // Ariticles
-Route::get('/articles', [ArticleController::class, 'index']);
-Route::get('/articles/create', [ArticleController::class, 'create']);
-Route::post('/articles', [ArticleController::class, 'store']);
-Route::get('/articles/{id}', [ArticleController::class, 'show']);
-Route::get('articles/{id}/edit', [ArticleController::class, 'edit']);
-Route::put('/articles/{id}', [ArticleController::class, 'update']);
-Route::delete('articles/{id}', [ArticleController::class, 'delete']);
+Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
+Route::get('/articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
+Route::get('articles/{article}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
+Route::put('/articles/{article}', [ArticleController::class, 'update'])->name('articles.update');
+Route::delete('articles/{article}', [ArticleController::class, 'delete'])->name('articles.delete');
